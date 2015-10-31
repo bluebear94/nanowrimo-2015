@@ -1,0 +1,27 @@
+\documentclass{book}
+
+\usepackage{titlesec}
+
+\title{A book}
+
+\newcommand{\stars}{*\quad*\quad*}
+\newcommand{\hidechapters}{\titleformat{\chapter}
+	{}{}{-1em}{}}
+\newcommand{\showchapters}{\titleformat{\chapter}[display]
+	{\large\normalfont\scshape\filcenter}{\thechapter}{1em}{}[\stars]}
+\renewcommand{\thechapter}{\Roman{chapter}}
+\renewcommand{\thesection}{\Roman{chapter}\alph{section}}
+\showchapters
+\titleformat{\section}[display]
+{\large\normalfont\filcenter}{\thesection}{1em}{\scshape}[\stars]
+
+\begin{document}
+	\maketitle
+	
+	\tableofcontents
+	
+	\chapter{First chapter}
+	
+	
+	
+\end{document}
