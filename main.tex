@@ -2,9 +2,15 @@
 
 \usepackage{titlesec}
 
-\title{A book}
-
 \newcommand{\stars}{*\quad*\quad*}
+\newcommand{\centeredstars}{\begin{center}
+		\stars
+	\end{center}}
+\newcommand{\q}[1]{\begin{quotation}
+		\itshape
+		#1
+		\normalfont
+	\end{quotation}}
 \newcommand{\hidechapters}{\titleformat{\chapter}
 	{}{}{-1em}{}}
 \newcommand{\showchapters}{\titleformat{\chapter}[display]
@@ -16,12 +22,12 @@
 {\large\normalfont\filcenter}{\thesection}{1em}{\scshape}[\stars]
 
 \begin{document}
+	\title{A book}
+	
 	\maketitle
 	
 	\tableofcontents
 	
-	\chapter{First chapter}
-	
-	
+	\input{body.tex}
 	
 \end{document}
