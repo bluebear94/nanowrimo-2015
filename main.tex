@@ -1,6 +1,8 @@
 \documentclass{book}
 
 \usepackage{titlesec}
+\usepackage{tocstyle}
+\usetocstyle{standard}
 
 \newcommand{\stars}{*\quad*\quad*}
 \newcommand{\centeredstars}{\begin{center}
@@ -18,10 +20,18 @@
 		#1
 	\end{center}}
 \newcommand{\sypros}{\v{S}ypros}
+\newcommand{\tyrden}{\v{C}yrden}
 \newcommand{\hidechapters}{\titleformat{\chapter}
 	{}{}{-1em}{}}
 \newcommand{\showchapters}{\titleformat{\chapter}[display]
 	{\large\normalfont\scshape\filcenter}{\thechapter}{1em}{}[\stars]}
+\newcommand{\showappendices}{\titleformat{\chapter}[display]
+{\large\normalfont\scshape\filcenter}{Appendix \thechapter}{1em}{}[\stars]}
+\newcommand{\achapter}[1]{
+	\addtocontents{toc}{\setcounter{tocdepth}{-1}}
+	\chapter{#1}
+	\addtocontents{toc}{\setcounter{tocdepth}{0}}
+}
 \renewcommand{\thechapter}{\Roman{chapter}}
 \renewcommand{\thesection}{\Roman{chapter}\alph{section}}
 \showchapters
