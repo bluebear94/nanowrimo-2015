@@ -4,8 +4,29 @@
 \usepackage{tocstyle}
 \usetocstyle{standard}
 \usepackage{amsmath}
+\usepackage{etoolbox}
 
-\newcommand{\stars}{*\quad*\quad*}
+\newtoggle{wcnt}
+% Please uncomment the line below before running the file through
+% pandoc, so extraneous words are not counted.
+% \toggletrue{wcnt}
+\iftoggle{wcnt} {
+	\newcommand{\stars}{}
+	\newcommand{\hidechapters}{}
+	\newcommand{\showchapters}{}
+	\newcommand{\showappendices}{}
+}{
+	\newcommand{\stars}{*\quad*\quad*}
+	\newcommand{\hidechapters}{\titleformat{\chapter}
+		{}{}{-1em}{}}
+	\newcommand{\showchapters}{\titleformat{\chapter}[display]
+		{\large\normalfont\scshape\filcenter}{\thechapter}{1em}{}[\stars]}
+	\newcommand{\showappendices}{\titleformat{\chapter}[display]
+		{\large\normalfont\scshape\filcenter}{Appendix \thechapter}{1em}{}[\stars]}
+	\renewcommand{\thechapter}{\Roman{chapter}}
+	\renewcommand{\thesection}{\Roman{chapter}\alph{section}}
+}
+
 \newcommand{\centeredstars}{\begin{center}
 		\stars
 	\end{center}}
@@ -28,19 +49,12 @@
 \newcommand{\eletyn}{\emph{ele\v{c}yn}}
 \newcommand{\eletyr}{\emph{ele\v{c}yr}}
 \newcommand{\yronsyncra}{Yron\v{s}yncra}
-\newcommand{\hidechapters}{\titleformat{\chapter}
-	{}{}{-1em}{}}
-\newcommand{\showchapters}{\titleformat{\chapter}[display]
-	{\large\normalfont\scshape\filcenter}{\thechapter}{1em}{}[\stars]}
-\newcommand{\showappendices}{\titleformat{\chapter}[display]
-{\large\normalfont\scshape\filcenter}{Appendix \thechapter}{1em}{}[\stars]}
+
 \newcommand{\achapter}[1]{
 	\addtocontents{toc}{\setcounter{tocdepth}{-1}}
 	\chapter{#1}
 	\addtocontents{toc}{\setcounter{tocdepth}{0}}
 }
-\renewcommand{\thechapter}{\Roman{chapter}}
-\renewcommand{\thesection}{\Roman{chapter}\alph{section}}
 \showchapters
 \titleformat{\section}[display]
 {\large\normalfont\filcenter}{\thesection}{1em}{\scshape}[\stars]

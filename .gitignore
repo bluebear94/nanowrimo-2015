@@ -37,3 +37,5 @@
 *.xdy
 *.tdo
 
+main.*
+!main.tex
