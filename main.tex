@@ -18,9 +18,9 @@
 }{
 	\newcommand{\stars}{*\quad*\quad*}
 	\newcommand{\hidechapters}{\titleformat{\chapter}
-		{}{}{-1em}{}}
+		{}{}{-1em}{} \setcounter{tocdepth}{-1}}
 	\newcommand{\showchapters}{\titleformat{\chapter}[display]
-		{\large\normalfont\scshape\filcenter}{\thechapter}{1em}{}[\stars]}
+		{\large\normalfont\scshape\filcenter}{\thechapter}{1em}{}[\stars]\setcounter{tocdepth}{0}}
 	\newcommand{\showappendices}{\titleformat{\chapter}[display]
 		{\large\normalfont\scshape\filcenter}{Appendix \thechapter}{1em}{}[\stars]}
 	\renewcommand{\thechapter}{\Roman{chapter}}
@@ -49,6 +49,7 @@
 \newcommand{\eletyn}{\emph{ele\v{c}yn}}
 \newcommand{\eletyr}{\emph{ele\v{c}yr}}
 \newcommand{\yronsyncra}{Yron\v{s}yncra}
+\newcommand{\Sja}{\v{S}a}
 
 \newcommand{\achapter}[1]{
 	\addtocontents{toc}{\setcounter{tocdepth}{-1}}
