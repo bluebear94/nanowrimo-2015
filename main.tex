@@ -9,7 +9,7 @@
 \newtoggle{wcnt}
 % Please uncomment the line below before running the file through
 % pandoc, so extraneous words are not counted.
-% \toggletrue{wcnt}
+ \toggletrue{wcnt}
 \iftoggle{wcnt} {
 	\newcommand{\stars}{}
 	\newcommand{\hidechapters}{}
@@ -25,6 +25,8 @@
 		{\large\normalfont\scshape\filcenter}{Appendix \thechapter}{1em}{}[\stars]}
 	\renewcommand{\thechapter}{\Roman{chapter}}
 	\renewcommand{\thesection}{\Roman{chapter}\alph{section}}
+	\titleformat{\section}[display]
+	{\large\normalfont\filcenter}{\thesection}{1em}{\scshape}[\stars]
 }
 
 \newcommand{\centeredstars}{\begin{center}
@@ -57,8 +59,6 @@
 	\addtocontents{toc}{\setcounter{tocdepth}{0}}
 }
 \showchapters
-\titleformat{\section}[display]
-{\large\normalfont\filcenter}{\thesection}{1em}{\scshape}[\stars]
 
 % TODOOT:
 % A -
